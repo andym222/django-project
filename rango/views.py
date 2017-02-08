@@ -37,13 +37,10 @@ def show_category(request, category_name_slug):
 
         
 def about(request):
-    context = RequestContext(request)
     
-    if request.session.get('visits'):
-        count = request.session.get('visits')
-    else:
-        count = 0
-    return render_to_response('rango/about.html', {'visits':count}, context)
+    print(request.method)
+    print(request.user)
+    return render(request, 'rango/about.html',{})
 
 
 def add_category(request):
